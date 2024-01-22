@@ -93,11 +93,11 @@ while True:
         available_items = basket.display_available_items()
         item_option = input("Enter the number of the item you want to add to your basket: ")
         if item_option in {"1", "2", "3"}:
-            try:
-                count = int(input(f"Enter the count for {available_items[item_option].title}: "))
-                basket.add_to_basket(available_items[item_option], count)
-            except ValueError:
-                print("Invalid count. Please enter a valid number.")
+            quantity = input(f"Enter the count for {available_items[item_option].title}: ")
+            if quantity.isdigit():
+                basket.add_to_basket(available_items[item_option], int(quantity))
+            else:
+                print("Invalid quantity. Please enter a valid number.")
         else:
             print("Invalid item option. Please enter a number between 1 and 3.")
 
