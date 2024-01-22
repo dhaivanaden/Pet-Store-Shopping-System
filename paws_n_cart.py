@@ -90,13 +90,12 @@ while True:
 
     if option == "1":
         # Allow the user to add items to the basket
-        basket.display_available_items()
+        available_items = basket.display_available_items()
         item_option = input("Enter the number of the item you want to add to your basket: ")
         if item_option in {"1", "2", "3"}:
             try:
-                count = int(input(f"Enter the count for {basket.display_available_items()[
-                    item_option].title}: "))
-                basket.add_to_basket(basket.display_available_items()[item_option], count)
+                count = int(input(f"Enter the count for {available_items[item_option].title}: "))
+                basket.add_to_basket(available_items[item_option], count)
             except ValueError:
                 print("Invalid count. Please enter a valid number.")
         else:
